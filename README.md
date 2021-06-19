@@ -24,3 +24,10 @@
   - datasets에서 train는 "학습용 또는 테스트용 데이터셋 여부를 지정"
   - datasets에서 download=True는 "root에 데이터가 없는 경우 인터넷에서 다운"
   - datasets에서 transform과 target_transform는 "특징과 정답 변형을 지정"
+
+* transform.py
+  - pytorch에서 제공해주는 데이터는 항상 머신러닝 알고리즘 학습에 필요한 최적화된 형태로 제공되지 않음 따라서 변형을 해서 데이터를 조작하여 학습에 적합하게 만들어야함
+  - TorchVision의 데이터셋들은 특징을 변경하기 위한 transform과 정답을 변경하기 위한 target_transform을 갖음 
+  - 사용한 FashionMNIST 특징을 PIL Image 형식이며 정답은 정수 임, 학습을 하려면 정규화된 텐서 형태의 특징과 원핫으로 부호화(encode)된 텐서 형태의 정답이 필요 따라서 변형을 하기 위해 ToTensor와 Lambda를 사용 
+  - ToTensor() : PIL image나 Numpy를 FloatTensor로 변환하고, 이미지의 픽셀의 크기 값을 [0.,1.] 범위로 비례하여 조정
+  - Lambda : 사용자 정의 람자 함수를 적용, 정수를 우너핫으로 부호화된 테서로 바꾸는 함수를 정의, 먼저 크기 10짜리인 zero tensor를 만들고, scatter_를 호출하여  주어진 정답 y에 해당하는 인덱스에 value=1을 할당 
