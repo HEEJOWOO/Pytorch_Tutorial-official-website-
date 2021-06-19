@@ -15,3 +15,12 @@
   - 텐서의 초기화는 데이터로 부터 직접 생성, numpy 배열로부터 생성, 다른 텐서로부터 생성
   - numpy배열과는 다르게 텐서는 cpu, gpu에서 사용 가능하며 gpu가 사용 가능하면 gpu로 옮겨 고속 연산을 하는게 유리
   - numpy의 배열 변경 사항이 tensor에도 변경 되면, tensor의 변경 사항이 numpy의 배열에도 변경됨
+
+* data_tutorial.py
+  - torch.utils.data.DataLoader : Dataset을 샘플에 쉽게 접근할 수 있도록 반복 가능한 객체로 만듦
+  - torch.utils.data.Dataset : 샘플과 정답을 저장
+  - Pytorch에서는 미리 준비해준 데이터셋을 제공해줌
+  - datasets에서 root는 "학습/데이터가 저장되는 경로"
+  - datasets에서 train는 "학습용 또는 테스트용 데이터셋 여부를 지정"
+  - datasets에서 download=True는 "root에 데이터가 없는 경우 인터넷에서 다운"
+  - datasets에서 transform과 target_transform는 "특징과 정답 변형을 지정"
